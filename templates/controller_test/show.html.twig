@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Twt{% endblock %}
+
+{% block body %}
+    <h1>Twt</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ twt.id }}</td>
+            </tr>
+            <tr>
+                <th>Rang</th>
+                <td>{{ twt.Rang }}</td>
+            </tr>
+            <tr>
+                <th>BonEntree</th>
+                <td>{{ twt.bonEntree }}</td>
+            </tr>
+            <tr>
+                <th>CodeCollecteur</th>
+                <td>{{ twt.codeCollecteur }}</td>
+            </tr>
+            <tr>
+                <th>RsCollecteur</th>
+                <td>{{ twt.rsCollecteur }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ twt.region }}</td>
+            </tr>
+            <tr>
+                <th>Zone</th>
+                <td>{{ twt.zone }}</td>
+            </tr>
+            <tr>
+                <th>Agriculteur</th>
+                <td>{{ twt.agriculteur }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ twt.matricule }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ twt.type }}</td>
+            </tr>
+            <tr>
+                <th>CodeTransporteur</th>
+                <td>{{ twt.codeTransporteur }}</td>
+            </tr>
+            <tr>
+                <th>RsTransporteur</th>
+                <td>{{ twt.rsTransporteur }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeur</th>
+                <td>{{ twt.chauffeur }}</td>
+            </tr>
+            <tr>
+                <th>NumTel</th>
+                <td>{{ twt.numTel }}</td>
+            </tr>
+            <tr>
+                <th>N1</th>
+                <td>{{ twt.n1 }}</td>
+            </tr>
+            <tr>
+                <th>DateEntree</th>
+                <td>{{ twt.dateEntree ? twt.dateEntree|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>TarifTrans</th>
+                <td>{{ twt.tarifTrans }}</td>
+            </tr>
+            <tr>
+                <th>Operateur</th>
+                <td>{{ twt.operateur }}</td>
+            </tr>
+            <tr>
+                <th>Article</th>
+                <td>{{ twt.article }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_controller_test_index') }}">back to list</a>
+
+    <a href="{{ path('app_controller_test_edit', {'id': twt.id}) }}">edit</a>
+
+    {{ include('controller_test/_delete_form.html.twig') }}
+{% endblock %}

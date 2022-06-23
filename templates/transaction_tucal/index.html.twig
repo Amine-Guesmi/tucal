@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TransactionTucalController!{% endblock %}
+
+{% block body %}
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="card text-white bg-info mb-3" style="max-width: 12rem;">
+        <div class="card-header">Semi</div>
+        <div class="card-body">
+            <h4 class="card-title">{{ stats.nombreSemi }}</h4>
+        </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="card text-white bg-warning mb-3" style="max-width: 12rem;">
+            <div class="card-header">poids lourd</div>
+            <div class="card-body">
+                <h4 class="card-title">{{ stats.nombreP }}</h4>
+            </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="card text-white bg-success mb-3" style="max-width: 12rem;">
+            <div class="card-header">Petit poid lourd</div>
+            <div class="card-body">
+                <h4 class="card-title">{{ stats.nombreCam }}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Rang</th>
+      <th scope="col">Matricule</th>
+      <th scope="col">Bon_Entree</th>
+      <th scope="col">Region</th>
+      <th scope="col">Zone</th>
+      <th scope="col">Type</th>
+      <th scope="col">CHauffeur</th>
+      <th scope="col">Tel</th>
+      <th scope="col">Article</th>
+      <th scope="col">date Entree</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for elm in twt %}
+        <tr>
+        <td>{{ elm.Rang }}</td>
+        <td>{{ elm.matricule }}</td>
+        <td>{{ elm.bonEntree }}</td>
+        <td>{{ elm.region}}</td>
+        <td>{{ elm.zone }}</td>
+        <td>{{ elm.type }}</td>
+        <td>{{ elm.CHauffeur }}</td>
+        <td>{{ elm.numTel }}</td>
+        <td>{{ elm.article }}</td>
+        <td>{{ elm.dateEntree |date('Y-m-d H:i:s')}}</td>
+        </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}
