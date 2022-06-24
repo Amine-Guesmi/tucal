@@ -29,15 +29,16 @@ class TransactionTucalController extends AbstractController
     #[Route('/addStats/{id}', name: 'app_add_stats', methods: ["POST"])]
     public function addStats(Request $request,Statistique $stats, StatistiqueRepository $repo, TwtRepository $repo_twt ): Response
     {
+        $parameters = json_decode($request->getContent(), true);
         $entityManager = $this->get('doctrine')->getManager();
-        $stats->setNombreCam((int) $request->get("nombreCam"));
-        $stats->setNombreP((int) $request->get("nombreP"));
-        $stats->setNombreSemi((int) $request->get("nombreSemi"));
+        $stats->setNombreCam((int) $parameters['nombreCam']);
+        $stats->setNombreP((int) $parameters['nombreP']);
+        $stats->setNombreSemi((int) $parameters['nombreSemi']);
 
         $entityManager->persist($stats);
         $entityManager->flush();
 
-        return new JsonResponse($stats->getNombreCam(), 200, ["Content-Type" => "application/json"]);
+        return new JsonResponse("add sucess", 200, ["Content-Type" => "application/json"]);
 
     }
 
