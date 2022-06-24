@@ -37,7 +37,7 @@ class TransactionTucalController extends AbstractController
         $entityManager->persist($stats);
         $entityManager->flush();
 
-        return new JsonResponse("createdSucess", 200, ["Content-Type" => "application/json"]);
+        return new JsonResponse($stats->getNombreCam(), 200, ["Content-Type" => "application/json"]);
 
     }
 
@@ -46,8 +46,12 @@ class TransactionTucalController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $twt = new Twt();
+        $entityManager = $this->get('doctrine')->getManager();
+        /*$twt->setRang();
+        $twt->setMatricule();
+        $twt->setBonEntree();
+        $twt->*/
 
-        
         $entityManager->flush();
 
         return new JsonResponse("createdSucess", 200, ["Content-Type" => "application/json"]);
