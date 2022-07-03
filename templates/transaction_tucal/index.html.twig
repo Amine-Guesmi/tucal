@@ -35,15 +35,14 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Rang</th>
-      <th scope="col">Matricule</th>
       <th scope="col">Bon_Entree</th>
-      <th scope="col">Region</th>
-      <th scope="col">Zone</th>
+      <th scope="col">Matricule</th>
       <th scope="col">Type</th>
+      <th scope="col">Collecteur</th>
+      <th scope="col">Zone</th>
       <th scope="col">CHauffeur</th>
       <th scope="col">Tel</th>
-      <th scope="col">Article</th>
-      <th scope="col">date Entree</th>
+      <th scope="col">date arrivée</th>
     </tr>
   </thead>
   <tbody>
@@ -51,14 +50,13 @@
     {% for elm in twt %}
         <tr>
         <td>{{ elm.Rang }}</td>
-        <td>{{ elm.matricule }}</td>
         <td>{{ elm.bonEntree }}</td>
-        <td>{{ elm.region}}</td>
-        <td>{{ elm.zone }}</td>
+        <td>{{ elm.matricule }}</td>
         <td>{{ elm.type }}</td>
+        <td>{{ elm.rsCollecteur}}</td>
+        <td>{{ elm.zone }}</td>
         <td>{{ elm.CHauffeur }}</td>
         <td>{{ elm.numTel }}</td>
-        <td>{{ elm.article }}</td>
         <td>{{ elm.dateEntree |date('Y-m-d H:i:s')}}</td>
         </tr>
     {% endfor %}

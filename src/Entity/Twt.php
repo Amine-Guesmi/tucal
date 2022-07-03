@@ -23,7 +23,7 @@ class Twt
     private $codeCollecteur = "TEST";
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $rsCollecteur= "TEST";
+    private $rsCollecteur;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $region;
