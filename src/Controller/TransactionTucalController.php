@@ -81,6 +81,7 @@ class TransactionTucalController extends AbstractController
             $twt->setNumTel($parameters['numTel']);
             $twt->setDateEntree(new \DateTime($parameters['dateEntree']));
             $twt->setArticle($parameters['article']);
+            $twt->setRsCollecteur($parameters['collecteur']);
 
             $entityManager->persist($twt);
             $entityManager->flush();
@@ -90,5 +91,21 @@ class TransactionTucalController extends AbstractController
         
         return new JsonResponse("erreur", 500, ["Content-Type" => "application/json"]);
 
+    }
+
+
+    #[Route('/delete/twt', name: 'app_delete_twt', methods: ["POST"])]
+    public function deleteAllTwts(Request $request, TwtRepository $repo_twt ): Response
+    {
+
+        $parameters = json_decode($request->getContent(), true);
+
+        if($parameters['codeSecurity'] == "AzErTy987654321"){
+            
+            $repo_twt->deleteAllTWT();
+            return new JsonResponse("clear success", 200, ["Content-Type" => "application/json"]);
+        }
+        
+        return new JsonResponse("erreur", 500, ["Content-Type" => "application/json"]);
     }
 }

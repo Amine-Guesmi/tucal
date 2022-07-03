@@ -63,4 +63,12 @@ class TwtRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+        public function deleteAllTWT(){
+            $query = $this->createQueryBuilder('t')
+                    ->delete()
+                    ->getQuery()
+                    ->execute();
+            return $query;
+        }
 }
